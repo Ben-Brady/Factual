@@ -3,7 +3,7 @@ from datetime import datetime
 import APIImporter
 import Loggy
 
-TOKEN = ('NzA0MzIwNjkyMTY1OTM1MjE0.Xqbbwg.qphtRtNzISzN7g9tt7ThgZ9XrME')
+TOKEN = ('NzA0MzIwNjkyMTY1OTM1MjE0.Xqbbwg.Dx-R3YZo8N4_gKz43gr0lpMNZ34')
 prefix = ('!FactBot')
 
 client = discord.Client()
