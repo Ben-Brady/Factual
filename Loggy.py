@@ -9,19 +9,21 @@ def GetTime():
     utc_time = dt.replace(tzinfo = timezone.utc)
     return(utc_time.timestamp())
 
-
-Query = (input ("Would you like to log?(Y/N)")).lower()
+Query = (input ("Would you like to log?(Y/N): ")).lower()
 
 if Query == "y":
     Log = ("Log-"+str(GetTime()))
-    def Add(message):
+    def Add(message,author):
         print (message)
         f = open("Logs/"+str(Log), "a")
-        f.write('\n'+str(GetTime())+": "+message)
+        f.write('\n'+str(message)+","+str(author)+","+str(GetTime()))
         f.close()
         return
 
-if Query == "n":
-    def Add(message):
+elif Query == "n":
+    def Add(message,f):
         print (message)
         return
+
+else:
+    print ("You need to provide an input")
