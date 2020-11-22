@@ -5,13 +5,13 @@ from discord.ext.commands import Bot, has_permissions, CheckFailure
 import FactGen
 import Loggy
 
-import time
-import random
-import fnmatch
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 # ----------- Bot Variables ---------- #
 
-TOKEN = ('NzA0MzIwNjkyMTY1OTM1MjE0.Xqbbwg.Dx-R3YZo8N4_gKz43gr0lpMNZ34')
+TOKEN = (os.getenv('TOKEN'))
 bot = commands.Bot(command_prefix="!F ")
 bot.remove_command('help')
 
