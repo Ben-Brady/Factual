@@ -1,29 +1,26 @@
 from datetime import timezone
 import datetime
-
+import os
 # Getting the current date  
 # and time
 
 def GetTime():
     dt = datetime.datetime.now()
     utc_time = dt.replace(tzinfo = timezone.utc)
-    return(utc_time.timestamp())
+    return(str(utc_time.timestamp()))
 
-Query = (input ("Would you like to log?(Y/N): ")).lower()
+LogFolder = os.getcwd()+"\Logs"
+Log = ("\Log-"+str(GetTime())+".log")
 
-if Query == "y":
-    Log = ("Log-"+str(GetTime()))
-    def Add(message,author):
-        print (message)
-        f = open("Logs/"+str(Log), "a")
-        f.write('\n'+str(message)+","+str(author)+","+str(GetTime()))
-        f.close()
-        return
+#Create Log Folder if it doesn't exist
+if (os.path.isdir(LogFolder) == False):
+    os.mkdir(LogFolder)
 
-elif Query == "n":
-    def Add(message,f):
-        print (message)
-        return
+def Add(message,author):
+    print (message)
+    f = open(LogFolder+str(Log), "a")
+    f.write('\n'+str(message)+","+str(author)+","+str(GetTime()))
+    f.close()
+    return
 
-else:
-    print ("You need to provide an input")
+print("Created Log at - "+LogFolder+Log)
